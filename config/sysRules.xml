@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE rules SYSTEM "sysRules.dtd">
+<rules>
+  <default>com.liyuanhong.rules.CrussRule</default>
+  <rule>com.liyuanhong.rules.ReversalRule</rule>
+  <rule>com.liyuanhong.rules.CrussRule</rule>
+</rules>

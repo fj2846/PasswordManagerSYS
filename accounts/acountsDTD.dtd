@@ -1,0 +1,7 @@
+<!ELEMENT acconts (acconter*)>
+<!ELEMENT acconter (accont,description*,ciphertext,attribute+,comment*)>
+<!ELEMENT accont (#PCDATA)>
+<!ELEMENT description (#PCDATA)>
+<!ELEMENT ciphertext (#PCDATA)>
+<!ELEMENT attribute (#PCDATA)>
+<!ELEMENT comment (#PCDATA)>
