@@ -541,8 +541,8 @@ public class Main {
 		JMenuItem menuCreateMapRule = new JMenuItem("\u521B\u5EFA\u5BF9\u5E94\u89C4\u5219");
 		menu_1.add(menuCreateMapRule);
 		
-		JMenuItem mntmNewMenuItem = new JMenuItem("\u5BFC\u51FA\u8D26\u53F7");
-		mnNewMenu_1.add(mntmNewMenuItem);
+		JMenuItem exportAccountMenu = new JMenuItem("\u5BFC\u51FA\u8D26\u53F7");
+		mnNewMenu_1.add(exportAccountMenu);
 		
 		JMenu menuSmallTools = new JMenu("\u5C0F\u5DE5\u5177");
 		menuBar.add(menuSmallTools);
