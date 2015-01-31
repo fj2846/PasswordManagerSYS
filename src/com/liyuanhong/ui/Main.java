@@ -47,6 +47,7 @@ import com.liyuanhong.listener.FirstAccountListener;
 import com.liyuanhong.listener.ImportCreateRuleListener;
 import com.liyuanhong.listener.LastAccountListener;
 import com.liyuanhong.listener.MenuCurrentFileListener;
+import com.liyuanhong.listener.MenuExportAccount;
 import com.liyuanhong.listener.MenuNewAccountListener;
 import com.liyuanhong.listener.MenuOpenFileListener;
 import com.liyuanhong.listener.MenuRightCopy;
@@ -758,6 +759,7 @@ public class Main {
 		menuCreateMapRule.addActionListener(new MenuShowCreateRuleWindowListener(rulesListArea,
 				rulesBean,specifyRuleComboBox));
 		menuSetDefaultRule.addActionListener(new MenuSetDefaultRuleListener(rulesBean));
+		exportAccountMenu.addActionListener(new MenuExportAccount(frame, itemAnchor));
 		
 		//添加程序启动要初始化的内容
 		LoadRules loadRules = new LoadRules(rulesBean, rulesListArea, addedListArea,
