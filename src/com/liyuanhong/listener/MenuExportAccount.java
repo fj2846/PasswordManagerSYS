@@ -33,7 +33,8 @@ public class MenuExportAccount implements ActionListener{
 	private Document doc;
 	
 	public MenuExportAccount(JFrame frame,CurrentAcountItem itemAnchor) {
-		
+		this.frame = frame;
+		this.itemAnchor = itemAnchor;
 	}
 
 	@Override
@@ -91,11 +92,11 @@ public class MenuExportAccount implements ActionListener{
 		    parseFile(sheet1);
 		    
 			wb.write(fileOut);
-		    fileOut.close();
-		    
-		    
+		    fileOut.close();    
 		    
 		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println("aaaaaaaaaa");
 		}  
 	}
 	
@@ -103,25 +104,28 @@ public class MenuExportAccount implements ActionListener{
 		SAXBuilder builder = new SAXBuilder();
 		File file = new File("accont.xml");
 		Document document = itemAnchor.getDocument();
-		Element root = document.getRootElement();
-		try {
-			document = builder.build(file);
-			root = document.getRootElement();
-			Iterator<Element> ite = root.getChildren().iterator();
+		if(document == null){
 			
-			for(int i = 0;ite.hasNext();){
-				Element ele = ite.next();
-				Iterator<Element> ite1 = ele.getChildren().iterator();
-				Row row = sheet1.createRow((short)++i);
-				for(;ite1.hasNext();){
-					Element ele1 = ite1.next();
-					writeToExcel(row, ele1);
-					System.out.println(ele1.getText());
+		}else{
+			Element root = document.getRootElement();
+			try {
+				root = document.getRootElement();
+				Iterator<Element> ite = root.getChildren().iterator();
+				
+				for(int i = 0;ite.hasNext();){
+					Element ele = ite.next();
+					Iterator<Element> ite1 = ele.getChildren().iterator();
+					Row row = sheet1.createRow((short)++i);
+					for(;ite1.hasNext();){
+						Element ele1 = ite1.next();
+						writeToExcel(row, ele1);
+//						System.out.println(ele1.getText());
+					}
 				}
+		} catch (Exception e) {
+				e.printStackTrace();
 			}
-	} catch (Exception e) {
-			e.printStackTrace();
-		}	
+		}			
 	}
 		
 		public static void writeToExcel(Row row,Element ele1){
